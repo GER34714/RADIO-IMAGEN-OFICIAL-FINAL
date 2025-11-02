@@ -7,159 +7,223 @@
 <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-  body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle at top, #0a0a0a 60%, #050505);
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
-  .bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(0,255,255,0.05) 0px,
-      rgba(0,255,255,0.1) 1px,
-      transparent 3px,
-      transparent 6px
-    );
-    animation: moveBg 8s linear infinite;
-    z-index: 0;
-  }
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #0a0a0a 60%, #050505);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+}
 
-  @keyframes moveBg {
-    from {background-position: 0 0;}
-    to {background-position: 1000px 0;}
-  }
+/* 🔊 Fondo animado */
+.bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0,255,255,0.05) 0px,
+    rgba(0,255,255,0.1) 1px,
+    transparent 3px,
+    transparent 6px
+  );
+  animation: moveBg 8s linear infinite;
+  z-index: 0;
+}
 
-  h1 {
-    font-size: 2.8em;
-    color: #0ff;
-    text-shadow: 0 0 15px #0ff, 0 0 25px #09f;
-    animation: pulse 2s infinite alternate;
-    z-index: 1;
-  }
+@keyframes moveBg {
+  from {background-position: 0 0;}
+  to {background-position: 1000px 0;}
+}
 
-  @keyframes pulse {
-    from { text-shadow: 0 0 10px #0ff, 0 0 20px #09f; }
-    to { text-shadow: 0 0 30px #0ff, 0 0 60px #09f; }
-  }
+/* 🎧 Iframe original (player Listen2MyRadio) */
+iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  z-index: 1;
+}
 
-  p { color: #ccc; font-style: italic; margin-bottom: 40px; z-index: 1; }
+/* 🩶 Capa con luces pulsantes */
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 2;
+  box-shadow: inset 0 0 50px rgba(0,255,255,0.3),
+              inset 0 0 150px rgba(255,0,255,0.15);
+  animation: neonFlash 4s infinite alternate;
+}
 
-  button {
-    background: linear-gradient(90deg, #0ff, #09f);
-    color: #000;
-    border: none;
-    border-radius: 50px;
-    padding: 18px 50px;
-    font-size: 1.3em;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 20px #0ff;
-    transition: 0.2s;
-    z-index: 1;
-  }
+@keyframes neonFlash {
+  0%   { box-shadow: inset 0 0 40px rgba(0,255,255,0.2),
+                    inset 0 0 100px rgba(255,0,255,0.1); }
+  50%  { box-shadow: inset 0 0 90px rgba(0,255,255,0.4),
+                    inset 0 0 200px rgba(255,0,255,0.2); }
+  100% { box-shadow: inset 0 0 50px rgba(0,255,255,0.3),
+                    inset 0 0 150px rgba(255,0,255,0.15); }
+}
 
-  button:hover {
-    transform: scale(1.08);
-    background: linear-gradient(90deg, #09f, #0ff);
-    box-shadow: 0 0 35px #09f;
-  }
+/* 🎙️ Encabezado */
+h1 {
+  position: absolute;
+  top: 25px;
+  width: 100%;
+  text-align: center;
+  font-size: 2.6em;
+  color: #0ff;
+  text-shadow: 0 0 15px #0ff, 0 0 25px #09f;
+  animation: pulse 2s infinite alternate;
+  z-index: 3;
+}
 
-  .onair {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1em;
-    z-index: 1;
-  }
+@keyframes pulse {
+  from { text-shadow: 0 0 10px #0ff, 0 0 20px #09f; }
+  to   { text-shadow: 0 0 30px #0ff, 0 0 60px #09f; }
+}
 
-  .dot {
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    background: red;
-    box-shadow: 0 0 10px red;
-    animation: blink 1s infinite;
-  }
+/* 🔴 ON AIR */
+.onair {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+  z-index: 3;
+}
 
-  @keyframes blink {
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:.2;}
-  }
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: 0 0 10px red;
+  animation: blink 1s infinite;
+}
 
-  footer {
-    position: absolute; bottom: 20px;
-    font-size: 0.9em; color: #888;
-    z-index: 1;
-  }
+@keyframes blink {
+  0%,50%,100% { opacity: 1; }
+  25%,75%     { opacity: .2; }
+}
 
-  .ticker {
-    position: absolute;
-    bottom: 60px;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    z-index: 1;
-  }
+/* 🎛️ Ecualizador animado */
+.equalizer {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 3;
+}
 
-  .ticker span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: scroll 15s linear infinite;
-    color: #0ff;
-    text-shadow: 0 0 10px #09f;
-    font-weight: bold;
-    font-size: 1.1em;
-  }
+.bar {
+  width: 10px;
+  background: linear-gradient(to top, #09f, #0ff);
+  border-radius: 3px;
+  animation: bounce 1s ease infinite;
+}
 
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
+@keyframes bounce {
+  0%,100% { height: 20px; opacity: .6; }
+  50% { height: 80px; opacity: 1; }
+}
+
+.bar:nth-child(1){animation-delay:0s}
+.bar:nth-child(2){animation-delay:.1s}
+.bar:nth-child(3){animation-delay:.2s}
+.bar:nth-child(4){animation-delay:.3s}
+.bar:nth-child(5){animation-delay:.4s}
+
+/* ▶️ Botón */
+button {
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #0ff, #09f);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 45px;
+  font-size: 1.2em;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 20px #0ff;
+  transition: 0.25s;
+  z-index: 3;
+}
+
+button:hover {
+  transform: translateX(-50%) scale(1.08);
+  background: linear-gradient(90deg, #09f, #0ff);
+  box-shadow: 0 0 35px #09f;
+}
+
+/* 🎵 Ticker */
+.ticker {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 15s linear infinite;
+  color: #0ff;
+  text-shadow: 0 0 10px #09f;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
 </style>
 </head>
+
 <body>
+  <div class="bg"></div>
+  <iframe src="https://radioimagen76.radio12345.com/" allow="autoplay"></iframe>
+  <div class="overlay"></div>
 
-<div class="bg"></div>
+  <h1>🎧 Radio Pulso Digital Urbano™</h1>
 
-<h1>🎧 Radio Pulso Digital Urbano™</h1>
-<p>El ritmo de la calle y la energía del futuro 🔊</p>
+  <div class="onair">
+    <div class="dot"></div><span>ON AIR 🔴</span>
+  </div>
 
-<div class="onair">
-  <div class="dot"></div>
-  <span>ON AIR 🔴</span>
-</div>
+  <div class="equalizer">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
 
-<button onclick="abrirPlayer()">▶️ ESCUCHAR EN VIVO</button>
+  <button onclick="abrirPlayer()">▶️ ESCUCHAR EN VIVO</button>
 
-<div class="ticker">
-  <span>🎶 Transmitiendo en vivo desde Buenos Aires | Radio Pulso Digital Urbano™ | Música • Calle • Cultura • Energía 🔥🎵</span>
-</div>
+  <div class="ticker">
+    <span>🎶 Transmitiendo desde Buenos Aires | Radio Pulso Digital Urbano™ | Cultura • Música • Calle • Energía 🔥🎵</span>
+  </div>
 
-<footer>© 2025 Radio Pulso Digital Urbano™ | Powered by Ciborg347™</footer>
-
-<script>
-function abrirPlayer() {
-  const url = 'https://radioimagen76.radio12345.com/';
-  const player = window.open(
-    url,
-    'PulsoPlayer',
-    'width=420,height=220,menubar=no,toolbar=no,resizable=no,status=no'
-  );
-  if (!player) alert('Por favor habilitá las ventanas emergentes para escuchar la radio 🔊');
-}
-</script>
-
+  <script>
+    function abrirPlayer() {
+      window.open('https://radioimagen76.radio12345.com/', '_blank');
+    }
+  </script>
 </body>
 </html>
