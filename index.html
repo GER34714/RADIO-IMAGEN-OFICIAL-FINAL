@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎧 Radio Pulso Digital Urbano™ | En Vivo</title>
+  <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
+
+  <!-- META OG -->
+  <meta property="og:title" content="Radio Pulso Digital Urbano™ | Transmisión en Vivo">
+  <meta property="og:description" content="El ritmo de la calle y la energía del futuro 🔊 Escuchá Radio Pulso Digital Urbano™ en vivo.">
+  <meta property="og:image" content="https://iili.io/KHOiff9.md.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #0a0a0a 60%, #050505);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 60px 20px 20px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8em;
+      color: #0ff;
+      text-shadow: 0 0 15px #0ff, 0 0 25px #09f, 0 0 45px #0ff;
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { text-shadow: 0 0 10px #0ff, 0 0 20px #09f; }
+      to { text-shadow: 0 0 30px #0ff, 0 0 60px #09f; }
+    }
+
+    p.tagline {
+      font-size: 1.1em;
+      color: #ccc;
+      margin-top: 5px;
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+
+    .player-container {
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    iframe {
+      width: 320px;
+      height: 160px;
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    .pulse-wave {
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(90deg, #0ff, #09f, #f0f, #0ff);
+      background-size: 400% 100%;
+      animation: moveWave 6s linear infinite;
+      opacity: 0.3;
+      margin-top: 50px;
+    }
+
+    @keyframes moveWave {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 32px;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+      z-index: 100;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #20ba5a;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float i {
+      margin-top: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎧 Radio Pulso Digital Urbano™</h1>
+    <p class="tagline">El ritmo de la calle y la energía del futuro 🔊</p>
+  </header>
+
+  <div class="player-container">
+    <!-- REPRODUCTOR EN VIVO -->
+    <iframe src="https://radioimagen76.radio12345.com/" allow="autoplay"></iframe>
+    <p>🔴 Transmitiendo en vivo desde <strong>Listen2MyRadio</strong></p>
+  </div>
+
+  <div class="pulse-wave"></div>
+
+  <footer>
+    <p>© 2025 Radio Pulso Digital Urbano™ | Powered by Ciborg347™</p>
+  </footer>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/5491125127839?text=Hola!%20Estoy%20escuchando%20Radio%20Pulso%20Digital%20Urbano™%20🔥%20Quiero%20más%20info!" 
+     class="whatsapp-float" target="_blank">
+     <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ICONOS -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
