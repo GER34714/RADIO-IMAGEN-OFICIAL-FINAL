@@ -45,7 +45,7 @@ body{
   border-radius:30px;
   box-shadow:0 0 40px #00ffff;
   max-width:700px;
-  margin:20px auto 100px; /* espacio superior reducido */
+  margin:20px auto 100px;
   padding:80px 50px;
   animation:neonPulse 5s infinite;
 }
@@ -206,6 +206,25 @@ body{
   box-shadow:0 0 35px #25D366;
 }
 
+/* 📤 Botón compartir */
+.share-btn{
+  background:linear-gradient(135deg,#ff9900,#ff0080);
+  color:#fff;
+  border:none;
+  padding:15px 45px;
+  font-size:1.2em;
+  border-radius:50px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:15px;
+  box-shadow:0 0 25px #ff00ff;
+  transition:.3s;
+}
+.share-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 35px #ff00ff;
+}
+
 /* Footer créditos */
 .footer {
   color:#888;
@@ -251,9 +270,7 @@ body{
 
 <!-- 🎙️ SECCIÓN PUBLICIDAD -->
 <div class="promo-box">
-  <h2>📢 ¡Hacemos la publicidad de tu marca en
-
-<br><span>RADIO IMAGEN™</span></h2>
+  <h2>📢 ¡Hacemos la publicidad de tu marca en<br><span>RADIO IMAGEN™</span></h2>
   <p>🎧 Convertí tu negocio en protagonista del aire.  
 
 🎙️ Promocioná tu marca, producto o evento con menciones en vivo, spots profesionales y presencia en nuestra programación.  
@@ -261,6 +278,8 @@ body{
 🚀 No pierdas la oportunidad de estar donde todos escuchan.</p>
 
   <a class="promo-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Quiero publicitar ahora</a>
+
+  <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
 </div>
 
 <!-- ⚡ Créditos -->
@@ -281,6 +300,20 @@ function cerrarPlayer(){
   playerBox.style.display='none';
   playBtn.style.display='inline-block';
   radioIframe.src = radioIframe.src;
+}
+
+/* 📤 Compartir */
+function compartir(){
+  const shareData = {
+    title: '🎧 Radio Imagen™ | En Vivo 24hs',
+    text: 'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
+    url: 'https://radioimagen347.onrender.com'
+  };
+  if (navigator.share) {
+    navigator.share(shareData);
+  } else {
+    alert('Copiá este enlace para compartir:\n' + shareData.url);
+  }
 }
 </script>
 
