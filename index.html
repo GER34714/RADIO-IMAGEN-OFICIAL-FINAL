@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎧 RADIO IMAGEN by carlos producciónes™ | En Vivo 24hs</title>
+<title>🎧 RADIO IMAGEN by CARLOS™ | En Vivo 24hs</title>
 <link rel="icon" type="image/png" href="https://iili.io/KZ3YpR4.md.png">
 
-<meta property="og:title" content="Radio Imagen by Carlos™ | Música, difusión y buena vibra 24hs 🎵">
+<meta property="og:title" content="RADIO IMAGEN by CARLOS™ | Música, difusión y buena vibra 24hs 🎵">
 <meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música sin pausas, difusión, entrevistas y buena energía. Escuchanos en vivo ahora 🎧">
 <meta property="og:image" content="https://iili.io/KZ3YpR4.md.png">
 <meta property="og:type" content="website">
@@ -15,7 +15,15 @@
 <meta name="theme-color" content="#00ffff">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 🔤 Fuente personalizada */
+@font-face {
+  font-family: 'Amadeus';
+  src: url('AMADEUS_.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -34,7 +42,7 @@ body{
   border-radius:30px;
   box-shadow:0 0 40px #00ffff;
   max-width:700px;
-  margin:60px auto 100px; /* 🔧 reducido de 140px a 60px */
+  margin:60px auto 100px;
   padding:80px 50px;
   animation:neonPulse 5s infinite;
 }
@@ -43,20 +51,14 @@ body{
   50%{box-shadow:0 0 15px #ff00ff;}
 }
 
-/* Título */
+/* 🎙️ Título principal */
 .radio-title{
-  font-family:'Luckiest Guy',cursive;
-  font-size:2.6em;
+  font-family:'Amadeus',sans-serif;
+  font-size:2.8em;
+  letter-spacing:2px;
   margin-bottom:25px;
-  background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-size:300%;
-  animation:neonFlow 5s infinite linear;
-}
-@keyframes neonFlow{
-  0%{background-position:0%;}
-  100%{background-position:100%;}
+  color:#00ffff;
+  text-shadow:0 0 15px #00ffff, 0 0 30px #ff00ff;
 }
 
 /* Logo */
@@ -99,7 +101,7 @@ body{
   box-shadow:0 0 45px #ff00ff;
 }
 
-/* Player (aparece después del click) */
+/* Player */
 .player-box{
   display:none;
   margin-top:40px;
@@ -143,29 +145,30 @@ body{
   box-shadow:0 0 25px #ff0080;
 }
 
-/* 🔊 Sección Publicidad */
+/* 💬 Sección Publicidad */
 .promo-box{
   max-width:700px;
   margin:100px auto;
   background:rgba(0,0,0,0.85);
   border-radius:25px;
-  padding:50px 40px;
+  padding:55px 40px;
   text-align:center;
   box-shadow:0 0 25px rgba(255,0,255,0.5);
 }
 .promo-box h2{
-  font-family:'Luckiest Guy',cursive;
+  font-family:'Poppins',sans-serif;
   color:#ff00ff;
-  font-size:2.3em;
-  text-shadow:0 0 15px rgba(255,0,255,0.5);
-  margin-bottom:15px;
+  font-size:2.2em;
+  margin-bottom:20px;
+  text-shadow:0 0 15px rgba(255,0,255,0.4);
 }
 .promo-box p{
   color:#eaeaea;
   font-size:1.1em;
-  line-height:1.6em;
-  margin-bottom:25px;
-  text-shadow:0 0 4px rgba(0,255,255,0.2);
+  line-height:1.7em;
+  margin-bottom:30px;
+  white-space:pre-line;
+  text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 .promo-btn{
   background:linear-gradient(135deg,#25D366,#128C7E);
@@ -199,7 +202,7 @@ body{
 <body>
 
 <div class="radio-box">
-  <h2 class="radio-title">Radio Imagen by Carlos™</h2>
+  <h2 class="radio-title">RADIO IMAGEN by CARLOS™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
@@ -213,13 +216,18 @@ body{
   </div>
 </div>
 
-<!-- 🔊 SECCIÓN PUBLICIDAD -->
+<!-- 🎙️ SECCIÓN PUBLICIDAD -->
 <div class="promo-box">
-  <h2>📢 ¿Querés publicitar en la radio?</h2>
-  <p>🎙️ En <strong>RADIO IMAGEN™</strong> podés darle voz a tu marca, negocio o evento.  
-  Llegamos a miles de oyentes con programas en vivo, menciones y spots personalizados.  
-  🚀 Hacete escuchar en toda la región, ¡tu marca merece estar al aire!</p>
-  <a class="promo-btn" href="https://wa.me/+5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Escribinos ahora</a>
+  <h2>📢 ¡Hacé sonar tu marca en RADIO IMAGEN™!</h2>
+  <p>🎧 Convertí tu negocio en protagonista del aire.  
+Llegamos a miles de oyentes todos los días con música, noticias y buena energía.  
+
+🎙️ Promocioná tu marca, producto o evento con menciones en vivo, spots profesionales y presencia en nuestra programación.  
+
+🚀 La radio más escuchada te da el espacio para destacar.  
+No pierdas la oportunidad de estar donde todos escuchan.</p>
+
+  <a class="promo-btn" href="https://wa.me/5491138219568?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Quiero publicitar ahora</a>
 </div>
 
 <script>
@@ -236,7 +244,7 @@ function abrirPlayer(){
 function cerrarPlayer(){
   playerBox.style.display='none';
   playBtn.style.display='inline-block';
-  radioIframe.src = radioIframe.src; // corta el audio
+  radioIframe.src = radioIframe.src;
 }
 </script>
 
