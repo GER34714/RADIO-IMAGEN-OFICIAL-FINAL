@@ -3,227 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎧 Radio Pulso Digital Urbano™ | En Vivo</title>
+<title>RADIO IMAGEN by CARLOS™ | Ciborg347™</title>
 <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
+<meta property="og:title" content="RADIO IMAGEN by CARLOS™ | Ciborg347™">
+<meta property="og:description" content="Transmisión en vivo las 24 hs con estilo Ciborg347™. Música, difusión y buena vibra 🎵">
+<meta property="og:image" content="https://iili.io/KHOiff9.md.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+  body {
+    margin:0;
+    background:linear-gradient(145deg,#000010,#050018,#0a0015);
+    font-family:'Luckiest Guy',cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:#0ff;
+  }
 
-body {
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #0a0a0a 60%, #050505);
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  overflow: hidden;
-}
+  .radio-box {
+    text-align:center;
+    background:rgba(0,0,0,0.85);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 0 25px #00ffff;
+    max-width:480px;
+    width:90%;
+    animation:neonPulse 4s infinite;
+  }
 
-/* 🔊 Fondo animado */
-.bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(0,255,255,0.05) 0px,
-    rgba(0,255,255,0.1) 1px,
-    transparent 3px,
-    transparent 6px
-  );
-  animation: moveBg 8s linear infinite;
-  z-index: 0;
-}
+  @keyframes neonPulse {
+    0%,100% { box-shadow:0 0 25px #00ffff; }
+    50% { box-shadow:0 0 10px #00ffff; }
+  }
 
-@keyframes moveBg {
-  from {background-position: 0 0;}
-  to {background-position: 1000px 0;}
-}
+  .radio-title {
+    font-size:2em;
+    text-shadow:0 0 15px #0ff;
+    margin-bottom:8px;
+  }
 
-/* 🎧 Iframe original (player Listen2MyRadio) */
-iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: none;
-  z-index: 1;
-}
+  .radio-sub {
+    color:#aaa;
+    font-size:1em;
+    margin-bottom:18px;
+  }
 
-/* 🩶 Capa con luces pulsantes */
-.overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  z-index: 2;
-  box-shadow: inset 0 0 50px rgba(0,255,255,0.3),
-              inset 0 0 150px rgba(255,0,255,0.15);
-  animation: neonFlash 4s infinite alternate;
-}
+  .player {
+    position:relative;
+    width:100%;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,255,255,0.4);
+  }
 
-@keyframes neonFlash {
-  0%   { box-shadow: inset 0 0 40px rgba(0,255,255,0.2),
-                    inset 0 0 100px rgba(255,0,255,0.1); }
-  50%  { box-shadow: inset 0 0 90px rgba(0,255,255,0.4),
-                    inset 0 0 200px rgba(255,0,255,0.2); }
-  100% { box-shadow: inset 0 0 50px rgba(0,255,255,0.3),
-                    inset 0 0 150px rgba(255,0,255,0.15); }
-}
+  .player iframe {
+    width:100%;
+    height:80px;
+    border:none;
+    display:block;
+    background:#000;
+  }
 
-/* 🎙️ Encabezado */
-h1 {
-  position: absolute;
-  top: 25px;
-  width: 100%;
-  text-align: center;
-  font-size: 2.6em;
-  color: #0ff;
-  text-shadow: 0 0 15px #0ff, 0 0 25px #09f;
-  animation: pulse 2s infinite alternate;
-  z-index: 3;
-}
+  .onair {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    pointer-events:none;
+    font-size:1.2em;
+    color:#0ff;
+    animation:pulse 2s infinite;
+  }
 
-@keyframes pulse {
-  from { text-shadow: 0 0 10px #0ff, 0 0 20px #09f; }
-  to   { text-shadow: 0 0 30px #0ff, 0 0 60px #09f; }
-}
+  @keyframes pulse {
+    0%,100% {opacity:1; filter:drop-shadow(0 0 6px #0ff);}
+    50% {opacity:0.4; filter:drop-shadow(0 0 2px #0ff);}
+  }
 
-/* 🔴 ON AIR */
-.onair {
-  position: absolute;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.2em;
-  z-index: 3;
-}
-
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: red;
-  box-shadow: 0 0 10px red;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%,50%,100% { opacity: 1; }
-  25%,75%     { opacity: .2; }
-}
-
-/* 🎛️ Ecualizador animado */
-.equalizer {
-  position: absolute;
-  top: 130px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
-  z-index: 3;
-}
-
-.bar {
-  width: 10px;
-  background: linear-gradient(to top, #09f, #0ff);
-  border-radius: 3px;
-  animation: bounce 1s ease infinite;
-}
-
-@keyframes bounce {
-  0%,100% { height: 20px; opacity: .6; }
-  50% { height: 80px; opacity: 1; }
-}
-
-.bar:nth-child(1){animation-delay:0s}
-.bar:nth-child(2){animation-delay:.1s}
-.bar:nth-child(3){animation-delay:.2s}
-.bar:nth-child(4){animation-delay:.3s}
-.bar:nth-child(5){animation-delay:.4s}
-
-/* ▶️ Botón */
-button {
-  position: absolute;
-  top: 250px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, #0ff, #09f);
-  color: #000;
-  border: none;
-  border-radius: 50px;
-  padding: 16px 45px;
-  font-size: 1.2em;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 20px #0ff;
-  transition: 0.25s;
-  z-index: 3;
-}
-
-button:hover {
-  transform: translateX(-50%) scale(1.08);
-  background: linear-gradient(90deg, #09f, #0ff);
-  box-shadow: 0 0 35px #09f;
-}
-
-/* 🎵 Ticker */
-.ticker {
-  position: absolute;
-  bottom: 25px;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  z-index: 3;
-}
-
-.ticker span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll 15s linear infinite;
-  color: #0ff;
-  text-shadow: 0 0 10px #09f;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
+  .footer {
+    font-size:0.8em;
+    color:#666;
+    margin-top:18px;
+  }
 </style>
 </head>
 
 <body>
-  <div class="bg"></div>
-  <iframe src="https://radioimagen76.radio12345.com/" allow="autoplay"></iframe>
-  <div class="overlay"></div>
+  <div class="radio-box">
+    <h2 class="radio-title">🎧 RADIO IMAGEN <span style="color:#ff0080;">by CARLOS™</span></h2>
+    <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <h1>🎧 Radio Pulso Digital Urbano™</h1>
+    <div class="player">
+      <iframe src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
+      <div class="onair">🔴 ON AIR</div>
+    </div>
 
-  <div class="onair">
-    <div class="dot"></div><span>ON AIR 🔴</span>
+    <p class="footer">© RADIO IMAGEN by CARLOS™ | Powered by Ciborg347™</p>
   </div>
-
-  <div class="equalizer">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-
-  <button onclick="abrirPlayer()">▶️ ESCUCHAR EN VIVO</button>
-
-  <div class="ticker">
-    <span>🎶 Transmitiendo desde Buenos Aires | Radio Pulso Digital Urbano™ | Cultura • Música • Calle • Energía 🔥🎵</span>
-  </div>
-
-  <script>
-    function abrirPlayer() {
-      window.open('https://radioimagen76.radio12345.com/', '_blank');
-    }
-  </script>
 </body>
 </html>
