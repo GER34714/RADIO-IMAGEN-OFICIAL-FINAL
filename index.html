@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,14 +7,12 @@
 <title>🎧 RADIO IMAGEN by CARLOS™ | En Vivo 24hs</title>
 <link rel="icon" type="image/png" href="https://iili.io/KZ3YpR4.md.png">
 
-<!-- 🟣 OPEN GRAPH + SEO -->
 <meta property="og:title" content="RADIO IMAGEN by CARLOS™ | Música, difusión y buena vibra 24hs 🎵">
 <meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música sin pausas, difusión, entrevistas y buena energía. Escuchanos en vivo ahora 🎧">
 <meta property="og:image" content="https://iili.io/KZ3YpR4.md.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://radioimagen347.onrender.com">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="🎧 RADIO IMAGEN by CARLOS™ – 24hs de música, difusión y buena vibra. ¡Escuchanos en vivo ahora!">
 <meta name="theme-color" content="#00ffff">
 
 <style>
@@ -22,60 +21,22 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(120deg,#000010,#030033,#000010);
-  background-size:400% 400%;
-  animation:bgMove 15s infinite alternate ease-in-out;
+  background:#000;
   color:#0ff;
+  text-align:center;
   overflow-x:hidden;
 }
 
-/* 🌈 Fondo dinámico */
-@keyframes bgMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* 🌊 Ondas */
-.waves{
-  position:fixed;
-  top:0;left:0;width:100%;height:100%;
-  background:radial-gradient(circle at 50% 50%,rgba(0,0,20,0.6) 0%,#000010 80%);
-  overflow:hidden;z-index:0;
-}
-.wave{
-  position:absolute;bottom:0;width:200%;height:200%;
-  background:rgba(0,255,255,0.08);
-  border-radius:45%;
-  animation:waveMove 12s infinite linear;
-}
-.wave:nth-child(2){animation-duration:16s;opacity:.6;}
-.wave:nth-child(3){animation-duration:20s;opacity:.4;}
-@keyframes waveMove{
-  0%{transform:translateX(0) rotate(0deg);}
-  100%{transform:translateX(-50%) rotate(360deg);}
-}
-
-/* 🔝 Header reducido */
-header{
-  position:fixed;
-  top:0;left:0;width:100%;
-  background:rgba(0,0,0,0.75);
-  height:8px;
-  box-shadow:0 0 25px #00ffff;
-  z-index:10;
-}
-
-/* 📻 Caja principal */
+/* Caja principal */
 .radio-box{
-  position:relative;z-index:2;
+  position:relative;
+  z-index:2;
   background:rgba(0,0,0,0.85);
   border-radius:30px;
-  box-shadow:0 0 45px #00ffff;
+  box-shadow:0 0 40px #00ffff;
   max-width:700px;
   margin:140px auto 100px;
   padding:80px 50px;
-  text-align:center;
   animation:neonPulse 5s infinite;
 }
 @keyframes neonPulse{
@@ -83,7 +44,7 @@ header{
   50%{box-shadow:0 0 15px #ff00ff;}
 }
 
-/* 🧠 Título neón animado */
+/* Título */
 .radio-title{
   font-family:'Luckiest Guy',cursive;
   font-size:2.6em;
@@ -93,208 +54,140 @@ header{
   -webkit-text-fill-color:transparent;
   background-size:300%;
   animation:neonFlow 5s infinite linear;
-  text-shadow:0 0 25px rgba(0,255,255,0.6);
 }
 @keyframes neonFlow{
   0%{background-position:0%;}
   100%{background-position:100%;}
 }
 
-/* 🖼️ Logo animado */
+/* Logo */
 .radio-logo{
   display:block;
   margin:20px auto 40px;
-  width:240px;
+  width:220px;
   max-width:90%;
   animation:logoPulse 4s infinite ease-in-out;
 }
 @keyframes logoPulse{
-  0%{filter:drop-shadow(0 0 25px #00ffff);}
-  25%{filter:drop-shadow(0 0 35px #ff00ff);}
-  50%{filter:drop-shadow(0 0 25px #ffff00);}
-  75%{filter:drop-shadow(0 0 35px #00ffff);}
-  100%{filter:drop-shadow(0 0 25px #00ffff);}
+  0%{filter:drop-shadow(0 0 20px #00ffff);}
+  50%{filter:drop-shadow(0 0 30px #ff00ff);}
+  100%{filter:drop-shadow(0 0 20px #00ffff);}
 }
 
 /* Subtexto */
 .radio-sub{
-  color:#fff;font-size:1.2em;margin-bottom:40px;
+  color:#fff;
+  font-size:1.2em;
+  margin-bottom:40px;
   text-shadow:0 0 8px rgba(0,255,255,0.4);
 }
 
-/* ▶️ Botón y player */
-.play-container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:25px;
-}
+/* Botón */
 .play-btn{
   background:linear-gradient(135deg,#00ffff,#ff0080);
-  color:#000;border:none;
-  padding:20px 60px;border-radius:50px;
-  font-size:1.6em;cursor:pointer;
-  text-shadow:0 0 4px rgba(255,255,255,0.6);
+  color:#000;
+  border:none;
+  padding:20px 60px;
+  border-radius:50px;
+  font-size:1.6em;
+  cursor:pointer;
+  text-shadow:0 0 6px #fff;
   box-shadow:0 0 25px #00ffff;
   transition:.3s;
 }
-.play-btn:hover{transform:scale(1.08);box-shadow:0 0 45px #ff00ff;}
+.play-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 45px #ff00ff;
+}
 
+/* Player (aparece después del click) */
 .player-box{
   display:none;
+  margin-top:40px;
   animation:fadeIn 1s ease forwards;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
 }
 @keyframes fadeIn{
   from{opacity:0;transform:translateY(40px);}
   to{opacity:1;transform:translateY(0);}
 }
 .player-container{
-  width:160px;height:130px;
+  width:130px;
+  height:110px;
+  margin:auto;
   overflow:hidden;
   border-radius:25px;
   box-shadow:0 0 25px rgba(0,255,255,0.6);
 }
 .player-container iframe{
-  width:100%;height:300px;border:none;
-  transform:translateY(-215px);
-  scale:1.6;
+  width:100%;
+  height:300px;
+  border:none;
+  transform:translateY(-200px);
+  scale:1.5;
 }
+
+/* Botón cerrar */
 .close-btn{
-  margin-top:25px;background:#ff0080;border:none;
-  color:#fff;font-size:1.1em;padding:12px 25px;
-  border-radius:12px;cursor:pointer;
-  box-shadow:0 0 15px #ff0080;transition:.3s;
+  margin-top:25px;
+  background:#ff0080;
+  border:none;
+  color:#fff;
+  font-size:1em;
+  padding:10px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 15px #ff0080;
+  transition:.3s;
 }
-.close-btn:hover{transform:scale(1.08);box-shadow:0 0 25px #ff0080;}
+.close-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px #ff0080;
+}
 
-/* 💬 Publicidad */
-.promo-box{
-  position:relative;z-index:2;
-  max-width:700px;
-  margin:0 auto 120px;
-  background:rgba(0,0,0,0.85);
-  border-radius:25px;
-  padding:50px 40px;
-  text-align:center;
-  box-shadow:0 0 25px rgba(255,0,255,0.5);
-  animation:slideUp 1s ease forwards;
-}
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(80px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.promo-box h2{
-  font-family:'Luckiest Guy',cursive;
-  color:#ff00ff;
-  font-size:2.4em;
-  text-shadow:0 0 15px rgba(255,0,255,0.5);
-  margin-bottom:15px;
-}
-.promo-box p{
-  color:#eaeaea;
-  font-size:1.1em;
-  line-height:1.6em;
-  margin-bottom:25px;
-  text-shadow:0 0 4px rgba(0,255,255,0.2);
-}
-.promo-btn{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;border:none;padding:15px 45px;
-  font-size:1.2em;border-radius:50px;
-  text-decoration:none;display:inline-block;
-  box-shadow:0 0 25px #25D366;transition:.3s;
-}
-.promo-btn:hover{transform:scale(1.05);box-shadow:0 0 35px #25D366;}
-
-/* ⚙️ Footer */
-.footer{
-  font-size:.9em;color:#888;margin:60px 0;text-align:center;
-}
-.footer a{color:#0ff;text-decoration:none;}
-.footer a:hover{text-decoration:underline;}
-
-/* 💬 Botón flotante WhatsApp */
-.whatsapp-float{
-  position:fixed;bottom:25px;right:25px;
-  background:#25D366;padding:15px;
-  border-radius:50%;box-shadow:0 0 20px #25D366;
-  z-index:20;transition:.3s;
-}
-.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 0 35px #25D366;}
-
-/* 📱 Responsivo */
+/* Responsive */
 @media(max-width:600px){
   .radio-title{font-size:2.1em;}
   .radio-logo{width:180px;}
-  .radio-sub{font-size:1em;}
+  .player-container{width:110px;height:95px;}
+  .player-container iframe{transform:translateY(-190px);scale:1.4;}
   .play-btn{font-size:1.1em;padding:15px 40px;}
 }
 </style>
 </head>
 
 <body>
-<div class="waves">
-  <div class="wave"></div><div class="wave"></div><div class="wave"></div>
-</div>
-
-<header><div class="live-bar" id="liveBar"></div></header>
 
 <div class="radio-box">
   <h2 class="radio-title">RADIO IMAGEN by CARLOS™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <div class="play-container">
-    <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ ESCUCHAR RADIO</button>
+  <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ ESCUCHAR RADIO</button>
 
-    <div class="player-box" id="playerBox">
-      <div class="player-container">
-        <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
-      </div>
-      <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
+  <div class="player-box" id="playerBox">
+    <div class="player-container">
+      <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
     </div>
+    <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
   </div>
 </div>
 
-<div class="promo-box">
-  <h2>📢 ¿Querés publicitar en la radio?</h2>
-  <p>Tu marca, emprendimiento o evento puede sonar en toda la región 🎙️  
-  En RADIO IMAGEN™ ofrecemos spots publicitarios, menciones en vivo y paquetes de difusión personalizados.  
-  Llegá a miles de oyentes cada día con una inversión mínima y grandes resultados. 🚀</p>
-  <a class="promo-btn" href="https://wa.me/5491138219568?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Escribinos ahora</a>
-</div>
-
-<p class="footer">
-  © RADIO IMAGEN by CARLOS™ | Diseñado y desarrollado por 
-  <a href="https://ciborg347.onrender.com" target="_blank">CIBORG 347™</a>
-</p>
-
-<a href="https://wa.me/5491138219568?text=Hola!%20Quiero%20salir%20al%20aire%20en%20Radio%20Imagen!" target="_blank" class="whatsapp-float">
-  <img src="https://iili.io/J9VvMsu.png" width="40" alt="WhatsApp">
-</a>
-
 <script>
-const liveBar=document.getElementById('liveBar');
-const playBtn=document.getElementById('playButton');
-const playerBox=document.getElementById('playerBox');
-const radioIframe=document.getElementById('radioIframe');
+const playBtn = document.getElementById('playButton');
+const playerBox = document.getElementById('playerBox');
+const radioIframe = document.getElementById('radioIframe');
 
 function abrirPlayer(){
-  playerBox.style.display='flex';
+  playerBox.style.display='block';
   playBtn.style.display='none';
-  liveBar.classList.add('active');
+  window.scrollTo({top:playerBox.offsetTop-100,behavior:'smooth'});
 }
 function cerrarPlayer(){
   playerBox.style.display='none';
   playBtn.style.display='inline-block';
-  liveBar.classList.remove('active');
-  radioIframe.src=radioIframe.src; // corta el audio
+  radioIframe.src = radioIframe.src; // corta el audio
 }
 </script>
+
 </body>
 </html>
