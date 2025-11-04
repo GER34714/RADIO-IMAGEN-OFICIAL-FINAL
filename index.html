@@ -93,44 +93,35 @@ body{
   text-shadow:0 0 6px #fff;
   box-shadow:0 0 25px #00ffff;
   transition:.3s;
-  display:inline-block;
-  margin:auto;
 }
 .play-btn:hover{
   transform:scale(1.08);
   box-shadow:0 0 45px #ff00ff;
 }
 
-/* Player */
+/* Player (aparece después del click) */
 .player-box{
   display:none;
-  margin-top:45px;
-  animation:fadeIn 0.8s ease forwards;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  margin-top:40px;
+  animation:fadeIn 1s ease forwards;
 }
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(30px);}
+  from{opacity:0;transform:translateY(40px);}
   to{opacity:1;transform:translateY(0);}
 }
 .player-container{
-  width:150px;
-  height:125px;
+  width:130px;
+  height:110px;
+  margin:auto;
   overflow:hidden;
   border-radius:25px;
   box-shadow:0 0 25px rgba(0,255,255,0.6);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:auto;
 }
 .player-container iframe{
   width:100%;
   height:300px;
   border:none;
-  transform:translateY(-190px);
+  transform:translateY(-200px);
   scale:1.5;
 }
 
@@ -155,7 +146,7 @@ body{
 /* 🔊 Sección Publicidad */
 .promo-box{
   max-width:700px;
-  margin:80px auto;
+  margin:100px auto;
   background:rgba(0,0,0,0.85);
   border-radius:25px;
   padding:50px 40px;
@@ -165,8 +156,8 @@ body{
 .promo-box h2{
   font-family:'Luckiest Guy',cursive;
   color:#ff00ff;
-  font-size:2.2em;
-  text-shadow:0 0 15px rgba(255,0,255,0.4);
+  font-size:2.3em;
+  text-shadow:0 0 15px rgba(255,0,255,0.5);
   margin-bottom:15px;
 }
 .promo-box p{
@@ -197,8 +188,8 @@ body{
 @media(max-width:600px){
   .radio-title{font-size:2.1em;}
   .radio-logo{width:180px;}
-  .player-container{width:120px;height:100px;}
-  .player-container iframe{transform:translateY(-180px);scale:1.4;}
+  .player-container{width:110px;height:95px;}
+  .player-container iframe{transform:translateY(-190px);scale:1.4;}
   .play-btn{font-size:1.1em;padding:15px 40px;}
   .promo-box h2{font-size:1.8em;}
 }
@@ -225,9 +216,9 @@ body{
 <!-- 🔊 SECCIÓN PUBLICIDAD -->
 <div class="promo-box">
   <h2>📢 ¿Querés publicitar en la radio?</h2>
-  <p>🎙️ Tu marca, negocio o evento puede estar al aire en RADIO IMAGEN™.  
-  Alcanzá a miles de oyentes cada día con menciones, jingles y spots profesionales.  
-  💡 Ofrecemos paquetes personalizados de difusión, ¡hacé sonar tu emprendimiento en toda la región!</p>
+  <p>🎙️ En <strong>RADIO IMAGEN™</strong> podés darle voz a tu marca, negocio o evento.  
+  Llegamos a miles de oyentes con programas en vivo, menciones y spots personalizados.  
+  🚀 Hacete escuchar en toda la región, ¡tu marca merece estar al aire!</p>
   <a class="promo-btn" href="https://wa.me/5491138219568?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Escribinos ahora</a>
 </div>
 
@@ -237,7 +228,7 @@ const playerBox = document.getElementById('playerBox');
 const radioIframe = document.getElementById('radioIframe');
 
 function abrirPlayer(){
-  playerBox.style.display='flex';
+  playerBox.style.display='block';
   playBtn.style.display='none';
   window.scrollTo({top:playerBox.offsetTop-100,behavior:'smooth'});
 }
