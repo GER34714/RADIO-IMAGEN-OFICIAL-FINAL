@@ -3,107 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RADIO IMAGEN by CARLOS™ | Ciborg347™</title>
+<title>RADIO IMAGEN by CARLOS™</title>
 <link rel="icon" type="image/png" href="https://iili.io/KHOiff9.md.png">
-<meta property="og:title" content="RADIO IMAGEN by CARLOS™ | Ciborg347™">
-<meta property="og:description" content="Transmisión en vivo las 24 hs con estilo Ciborg347™. Música, difusión y buena vibra 🎵">
+<meta property="og:title" content="RADIO IMAGEN by CARLOS™">
+<meta property="og:description" content="Transmisión en vivo las 24 hs – Música, difusión y buena vibra 🎵">
 <meta property="og:image" content="https://iili.io/KHOiff9.md.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-  body {
-    margin:0;
-    background:linear-gradient(145deg,#000010,#050018,#0a0015);
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    height:100vh;
+    overflow:hidden;
     font-family:'Luckiest Guy',cursive;
+    background:#000;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
     color:#0ff;
   }
 
-  .radio-box {
+  /* 🌊 Fondo animado de ondas neón */
+  .waves{
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    background:radial-gradient(circle at 50% 50%,#050018 0%,#000010 80%);
+    overflow:hidden;z-index:0;
+  }
+  .wave{
+    position:absolute;
+    bottom:0;width:200%;height:200%;
+    background:rgba(0,255,255,0.05);
+    border-radius:45%;
+    animation:waveMove 10s infinite linear;
+  }
+  .wave:nth-child(2){animation-duration:12s;opacity:.6;}
+  .wave:nth-child(3){animation-duration:15s;opacity:.4;}
+  @keyframes waveMove{
+    0%{transform:translateX(0) rotate(0deg);}
+    100%{transform:translateX(-50%) rotate(360deg);}
+  }
+
+  .radio-box{
+    position:relative;
+    z-index:2;
     text-align:center;
-    background:rgba(0,0,0,0.85);
-    padding:30px;
+    background:rgba(0,0,0,0.8);
+    padding:40px 30px;
     border-radius:25px;
-    box-shadow:0 0 25px #00ffff;
-    max-width:480px;
-    width:90%;
+    box-shadow:0 0 30px #00ffff;
+    max-width:500px;width:90%;
     animation:neonPulse 4s infinite;
   }
-
-  @keyframes neonPulse {
-    0%,100% { box-shadow:0 0 25px #00ffff; }
-    50% { box-shadow:0 0 10px #00ffff; }
+  @keyframes neonPulse{
+    0%,100%{box-shadow:0 0 30px #00ffff;}
+    50%{box-shadow:0 0 10px #00ffff;}
   }
 
-  .radio-title {
-    font-size:2em;
-    text-shadow:0 0 15px #0ff;
-    margin-bottom:8px;
+  .radio-title{
+    font-size:2.2em;
+    text-shadow:0 0 20px #0ff;
+    margin-bottom:10px;
+  }
+  .radio-sub{
+    color:#aaa;font-size:1em;margin-bottom:20px;
   }
 
-  .radio-sub {
-    color:#aaa;
-    font-size:1em;
-    margin-bottom:18px;
+  .play-btn{
+    background:linear-gradient(135deg,#00ffff,#0080ff);
+    color:#000;border:none;
+    padding:18px 40px;border-radius:50px;
+    font-size:1.4em;cursor:pointer;
+    text-shadow:0 0 6px #0ff;
+    box-shadow:0 0 20px #00ffff;
+    transition:.3s;
+  }
+  .play-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 35px #00ffff;
   }
 
-  .player {
-    position:relative;
-    width:100%;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 0 15px rgba(0,255,255,0.4);
+  .player-box{
+    margin-top:25px;display:none;
+    animation:fadeIn .8s ease forwards;
+  }
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
   }
 
-  .player iframe {
-    width:100%;
-    height:80px;
-    border:none;
-    display:block;
-    background:#000;
+  .player{
+    position:relative;width:100%;
+    border-radius:16px;overflow:hidden;
+    box-shadow:0 0 25px rgba(0,255,255,0.5);
   }
-
-  .onair {
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    pointer-events:none;
-    font-size:1.2em;
-    color:#0ff;
+  .player iframe{
+    width:100%;height:150px;border:none;display:block;background:#000;
+  }
+  .onair{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    display:flex;justify-content:center;align-items:center;
+    pointer-events:none;font-size:1.3em;color:#0ff;
     animation:pulse 2s infinite;
   }
-
-  @keyframes pulse {
-    0%,100% {opacity:1; filter:drop-shadow(0 0 6px #0ff);}
-    50% {opacity:0.4; filter:drop-shadow(0 0 2px #0ff);}
+  @keyframes pulse{
+    0%,100%{opacity:1;filter:drop-shadow(0 0 8px #0ff);}
+    50%{opacity:.4;filter:drop-shadow(0 0 2px #0ff);}
   }
 
-  .footer {
-    font-size:0.8em;
+  .close-btn{
+    margin-top:12px;background:#ff0080;border:none;
+    color:#fff;font-size:1em;padding:8px 15px;
+    border-radius:8px;cursor:pointer;
+    box-shadow:0 0 10px #ff0080;transition:.3s;
+  }
+  .close-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #ff0080;
+  }
+
+  .footer{
+    font-size:.8em;
     color:#666;
     margin-top:18px;
+  }
+  .footer a{
+    color:#0ff;
+    text-decoration:none;
+  }
+  .footer a:hover{
+    text-decoration:underline;
   }
 </style>
 </head>
 
 <body>
+  <div class="waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
   <div class="radio-box">
     <h2 class="radio-title">🎧 RADIO IMAGEN <span style="color:#ff0080;">by CARLOS™</span></h2>
     <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-    <div class="player">
-      <iframe src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
-      <div class="onair">🔴 ON AIR</div>
+    <button class="play-btn" onclick="abrirPlayer()">▶️ ESCUCHAR RADIO</button>
+
+    <div class="player-box" id="playerBox">
+      <div class="player">
+        <iframe src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
+        <div class="onair">🔴 ON AIR</div>
+      </div>
+      <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
     </div>
 
-    <p class="footer">© RADIO IMAGEN by CARLOS™ | Powered by Ciborg347™</p>
+    <p class="footer">© RADIO IMAGEN by CARLOS™ | Powered by <a href="https://ciborg347.onrender.com" target="_blank">Ciborg347</a></p>
   </div>
+
+<script>
+function abrirPlayer(){
+  document.getElementById('playerBox').style.display='block';
+}
+function cerrarPlayer(){
+  document.getElementById('playerBox').style.display='none';
+}
+</script>
 </body>
 </html>
