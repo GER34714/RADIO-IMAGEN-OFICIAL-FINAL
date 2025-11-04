@@ -12,198 +12,202 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    min-height:100vh;
-    font-family:'Luckiest Guy',cursive;
-    background:#000;
-    color:#0ff;
-    overflow-x:hidden;
-  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;
+    font-family:'Luckiest Guy',cursive;
+    background:#000;
+    color:#0ff;
+    overflow-x:hidden;
+  }
 
-  /* 🌊 Fondo animado */
-  .waves{
-    position:fixed;
-    top:0;left:0;width:100%;height:100%;
-    background:radial-gradient(circle at 50% 50%,#050018 0%,#000010 80%);
-    overflow:hidden;z-index:0;
-  }
-  .wave{
-    position:absolute;bottom:0;width:200%;height:200%;
-    background:rgba(0,255,255,0.05);
-    border-radius:45%;
-    animation:waveMove 12s infinite linear;
-  }
-  .wave:nth-child(2){animation-duration:16s;opacity:.6;}
-  .wave:nth-child(3){animation-duration:20s;opacity:.4;}
-  @keyframes waveMove{
-    0%{transform:translateX(0) rotate(0deg);}
-    100%{transform:translateX(-50%) rotate(360deg);}
-  }
+  /* 🌊 Fondo animado */
+  .waves{
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    background:radial-gradient(circle at 50% 50%,#050018 0%,#000010 80%);
+    overflow:hidden;z-index:0;
+  }
+  .wave{
+    position:absolute;bottom:0;width:200%;height:200%;
+    background:rgba(0,255,255,0.05);
+    border-radius:45%;
+    animation:waveMove 12s infinite linear;
+  }
+  .wave:nth-child(2){animation-duration:16s;opacity:.6;}
+  .wave:nth-child(3){animation-duration:20s;opacity:.4;}
+  @keyframes waveMove{
+    0%{transform:translateX(0) rotate(0deg);}
+    100%{transform:translateX(-50%) rotate(360deg);}
+  }
 
-  /* 🔝 Header */
-  header{
-    position:fixed;
-    top:0;left:0;width:100%;
-    background:rgba(0,0,0,0.85);
-    box-shadow:0 0 20px #00ffff;
-    padding:10px 0;
-    text-align:center;
-    z-index:10;
-  }
-  header img{height:50px;vertical-align:middle;}
-  header h1{
-    display:inline-block;
-    font-size:1.8em;
-    color:#0ff;
-    text-shadow:0 0 12px #0ff;
-    margin-left:10px;
-    vertical-align:middle;
-  }
-  .live-bar{
-    width:100%;height:6px;
-    background:linear-gradient(90deg,#ff0080,#ff0,#00ffff);
-    box-shadow:0 0 25px #0ff;
-  }
+  /* 🔝 Header */
+  header{
+    position:fixed;
+    top:0;left:0;width:100%;
+    background:rgba(0,0,0,0.85);
+    box-shadow:0 0 20px #00ffff;
+    padding:10px 0;
+    text-align:center;
+    z-index:10;
+  }
+  header img{height:50px;vertical-align:middle;}
+  header h1{
+    display:inline-block;
+    font-size:1.8em;
+    color:#0ff;
+    text-shadow:0 0 12px #0ff;
+    margin-left:10px;
+    vertical-align:middle;
+  }
+  .live-bar{
+    width:100%;height:6px;
+    background:linear-gradient(90deg,#ff0080,#ff0,#00ffff);
+    box-shadow:0 0 25px #0ff;
+  }
 
-  /* 📻 Caja principal */
-  .radio-box{
-    position:relative;z-index:2;
-    background:rgba(0,0,0,0.85);
-    border-radius:30px;
-    box-shadow:0 0 35px #00ffff;
-    max-width:700px;
-    margin:160px auto 100px;
-    padding:80px 50px;
-    text-align:center;
-    animation:neonPulse 5s infinite;
-  }
-  @keyframes neonPulse{
-    0%,100%{box-shadow:0 0 35px #00ffff;}
-    50%{box-shadow:0 0 15px #00ffff;}
-  }
+  /* 📻 Caja principal */
+  .radio-box{
+    position:relative;z-index:2;
+    background:rgba(0,0,0,0.85);
+    border-radius:30px;
+    box-shadow:0 0 35px #00ffff;
+    max-width:700px;
+    margin:160px auto 100px;
+    padding:80px 50px;
+    text-align:center;
+    animation:neonPulse 5s infinite;
+  }
+  @keyframes neonPulse{
+    0%,100%{box-shadow:0 0 35px #00ffff;}
+    50%{box-shadow:0 0 15px #00ffff;}
+  }
 
-  .radio-title{
-    font-size:3em;
-    text-shadow:0 0 25px #0ff;
-    margin-bottom:25px;
-  }
-  .radio-sub{
-    color:#aaa;font-size:1.1em;margin-bottom:40px;
-  }
+  .radio-title{
+    font-size:3em;
+    text-shadow:0 0 25px #0ff;
+    margin-bottom:25px;
+  }
+  .radio-sub{
+    color:#aaa;font-size:1.1em;margin-bottom:40px;
+  }
 
-  .play-btn{
-    background:linear-gradient(135deg,#00ffff,#0080ff);
-    color:#000;border:none;
-    padding:20px 60px;border-radius:50px;
-    font-size:1.6em;cursor:pointer;
-    text-shadow:0 0 6px #0ff;
-    box-shadow:0 0 25px #00ffff;
-    transition:.3s;
-  }
-  .play-btn:hover{transform:scale(1.08);box-shadow:0 0 40px #00ffff;}
+  .play-btn{
+    background:linear-gradient(135deg,#00ffff,#0080ff);
+    color:#000;border:none;
+    padding:20px 60px;border-radius:50px;
+    font-size:1.6em;cursor:pointer;
+    text-shadow:0 0 6px #0ff;
+    box-shadow:0 0 25px #00ffff;
+    transition:.3s;
+  }
+  .play-btn:hover{transform:scale(1.08);box-shadow:0 0 40px #00ffff;}
 
-  /* 🎧 Mini-player */
-  .player-box{
-    margin-top:50px;
-    display:none;
-    animation:fadeIn 1s ease forwards;
-  }
-  @keyframes fadeIn{
-    from{opacity:0;transform:translateY(40px);}
-    to{opacity:1;transform:translateY(0);}
-  }
+  /* 🎧 Mini-player */
+  .player-box{
+    margin-top:50px;
+    display:none;
+    animation:fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+  }
 
-  .player-container{
-    width:120px;
-    height:110px;
-    margin:auto;
-    overflow:hidden;
-    border-radius:25px;
-    box-shadow:0 0 25px rgba(0,255,255,0.6);
-    position:relative;
-  }
-  .player-container iframe{
-    width:100%;
-    height:300px;
-    border:none;
-    transform:translateY(-230px) scale(1.8); /* zoom y centrado 👌 */
-    transform-origin:center top;
-  }
+  .player-container{
+    width:120px;
+    height:110px; /* 🔧 un poco más chico */
+    margin:auto;
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(0,255,255,0.6);
+    position:relative;
+  }
+  .player-container iframe{
+    width:100%;
+    height:300px;
+    border:none;
+    transform:translateY(-215px); /* 🔧 subido un poco más */
+    scale:1.6;
+  }
 
-  .close-btn{
-    margin-top:25px;background:#ff0080;border:none;
-    color:#fff;font-size:1.1em;padding:12px 25px;
-    border-radius:12px;cursor:pointer;
-    box-shadow:0 0 15px #ff0080;transition:.3s;
-  }
-  .close-btn:hover{transform:scale(1.08);box-shadow:0 0 25px #ff0080;}
+  .close-btn{
+    margin-top:25px;background:#ff0080;border:none;
+    color:#fff;font-size:1.1em;padding:12px 25px;
+    border-radius:12px;cursor:pointer;
+    box-shadow:0 0 15px #ff0080;transition:.3s;
+  }
+  .close-btn:hover{transform:scale(1.08);box-shadow:0 0 25px #ff0080;}
 
-  .footer{
-    font-size:.9em;color:#777;margin-top:60px;
-  }
-  .footer a{color:#0ff;text-decoration:none;}
-  .footer a:hover{text-decoration:underline;}
+  .footer{
+    font-size:.9em;color:#777;margin-top:60px;
+  }
+  .footer a{color:#0ff;text-decoration:none;}
+  .footer a:hover{text-decoration:underline;}
 
-  @media(max-width:600px){
-    .player-container{width:110px;height:100px;}
-    .player-container iframe{transform:translateY(-225px) scale(1.7);}
-    .radio-box{padding:60px 25px;margin:150px 20px 60px;}
-    .radio-title{font-size:2.4em;}
-    .play-btn{font-size:1.2em;padding:16px 45px;}
-    header h1{font-size:1.4em;}
-  }
+  @media(max-width:600px){
+    .player-container{width:110px;height:100px;}
+    .player-container iframe{transform:translateY(-210px);scale:1.5;}
+    .radio-box{padding:60px 25px;margin:150px 20px 60px;}
+    .radio-title{font-size:2.4em;}
+    .play-btn{font-size:1.2em;padding:16px 45px;}
+    header h1{font-size:1.4em;}
+  }
 </style>
 </head>
 
 <body>
-  <div class="waves">
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>
+  <div class="waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
 
-  <header>
-    <img src="https://iili.io/KHOiff9.md.png" alt="Logo Radio Imagen">
-    <h1>RADIO IMAGEN</h1>
-    <div class="live-bar" id="liveBar"></div>
-  </header>
+  <header>
+    <img src="https://iili.io/KHOiff9.md.png" alt="Logo Radio Imagen">
+    <h1>RADIO IMAGEN</h1>
+    <div class="live-bar" id="liveBar"></div>
+  </header>
 
-  <div class="radio-box">
-    <h2 class="radio-title">🎧 RADIO IMAGEN <span style="color:#ff0080;">by CARLOS™</span></h2>
-    <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
+  <div class="radio-box">
+    <h2 class="radio-title">🎧 RADIO IMAGEN <span style="color:#ff0080;">by CARLOS™</span></h2>
+    <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-    <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ ESCUCHAR RADIO</button>
+    <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ ESCUCHAR RADIO</button>
 
-    <div class="player-box" id="playerBox">
-      <div class="player-container">
-        <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
-      </div>
-      <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
-    </div>
+    <div class="player-box" id="playerBox">
+      <div class="player-container">
+        <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
+      </div>
+      <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
+    </div>
 
-    <p class="footer">
-      © RADIO IMAGEN by CARLOS™ | Powered by 
-      <a href="https://ciborg347.onrender.com" target="_blank">Ciborg347</a>
-    </p>
-  </div>
+    <p class="footer">
+      © RADIO IMAGEN by CARLOS™ | Powered by 
+      <a href="https://ciborg347.onrender.com" target="_blank">Ciborg347</a>
+    </p>
+  </div>
 
-  <script>
-    const playBtn = document.getElementById('playButton');
-    const playerBox = document.getElementById('playerBox');
-    const radioIframe = document.getElementById('radioIframe');
+  <script>
+    const liveBar = document.getElementById('liveBar');
+    const playBtn = document.getElementById('playButton');
+    const playerBox = document.getElementById('playerBox');
+    const radioIframe = document.getElementById('radioIframe');
 
-    function abrirPlayer(){
-      playerBox.style.display='block';
-      playBtn.style.display='none';
-    }
+    function abrirPlayer(){
+      playerBox.style.display='block';
+      playBtn.style.display='none';
+      liveBar.classList.add('active');
+    }
 
-    function cerrarPlayer(){
-      playerBox.style.display='none';
-      playBtn.style.display='inline-block';
-      // 🔇 corta el audio al cerrar
-      radioIframe.src = radioIframe.src;
-    }
-  </script>
+    function cerrarPlayer(){
+      playerBox.style.display='n
+one';
+      playBtn.style.display='inline-block';
+      liveBar.classList.remove('active');
+      // 🔇 corta el audio al cerrar
+      radioIframe.src = radioIframe.src;
+    }
+  </script>
 </body>
 </html>
