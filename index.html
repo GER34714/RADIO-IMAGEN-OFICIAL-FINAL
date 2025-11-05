@@ -45,6 +45,7 @@ body{
   margin:40px auto;
   padding:50px 30px;
   animation:neonPulse 5s infinite;
+  overflow:hidden; /* 🔥 Para que el texto no se salga del marco */
 }
 @keyframes neonPulse{
   0%,100%{box-shadow:0 0 20px #00ffff;}
@@ -93,22 +94,28 @@ body{
 
 /* 🔄 Barra de oyentes dinámica */
 .oyentes-bar {
+  position: relative;
   margin: 10px auto 25px;
-  white-space: nowrap;
+  width: 100%;
+  height: 30px;
   overflow: hidden;
-  width: 90%;
-  font-size: 1.1em;
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
-  animation: moverTexto 14s linear infinite;
 }
-@keyframes moverTexto {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+.oyentes-bar p {
+  position: absolute;
+  width: 100%;
+  color: #00ffff;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+  animation: moverTexto 10s linear infinite;
+  white-space: nowrap;
 }
 .oyentes-bar span {
   color: #ffff00;
   font-weight: 600;
+}
+@keyframes moverTexto {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* Botón */
@@ -266,7 +273,7 @@ body{
 
   <!-- 🔊 Oyentes dinámicos -->
   <div class="oyentes-bar">
-    🔊 Oyentes en este momento: <span id="contadorOyentes">120</span>
+    <p>🔊 Oyentes en este momento: <span id="contadorOyentes">120</span></p>
   </div>
 
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
@@ -322,15 +329,18 @@ function compartir(){
   else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
 }
 
-/* 📈 Contador progresivo de oyentes */
-let oyentes = 120; // valor inicial
+/* 📊 Contador dinámico realista (sube y baja) */
+let oyentes = 120;
 const contador = document.getElementById('contadorOyentes');
-function aumentarOyentes() {
-  const incremento = Math.floor(Math.random() * 5) + 1; // suma entre 1 y 5
-  oyentes += incremento;
+
+function cambiarOyentes() {
+  const cambio = Math.floor(Math.random() * 11) - 5; // entre -5 y +5
+  oyentes += cambio;
+  if (oyentes < 80) oyentes = 80;     // no baja demasiado
+  if (oyentes > 999) oyentes = 999;   // límite superior
   contador.textContent = oyentes;
 }
-setInterval(aumentarOyentes, 5000); // cada 5 segundos sube
+setInterval(cambiarOyentes, 4000); // cada 4 seg cambia
 </script>
 </body>
 </html>
