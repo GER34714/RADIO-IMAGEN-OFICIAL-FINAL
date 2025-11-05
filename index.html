@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎧 Radio Imagen™ | En Vivo 24hs</title>
 
-<!-- 🟣 Favicon completo -->
 <link rel="icon" type="image/png" href="https://iili.io/KZ3YpR4.md.png">
 <link rel="shortcut icon" href="https://iili.io/KZ3YpR4.md.png" type="image/png">
 
@@ -20,14 +19,12 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* 🔤 Fuente personalizada */
 @font-face {
   font-family: 'Amadeus';
   src: url('AMADEUS_.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
+/* Reset */
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Poppins',sans-serif;
@@ -35,37 +32,37 @@ body{
   color:#0ff;
   text-align:center;
   overflow-x:hidden;
+  padding:20px;
 }
 
 /* Caja principal */
 .radio-box{
   position:relative;
-  z-index:2;
-  background:rgba(0,0,0,0.85);
-  border-radius:30px;
-  box-shadow:0 0 40px #00ffff;
-  max-width:700px;
-  margin:20px auto 100px;
-  padding:80px 50px;
+  background:rgba(0,0,0,0.8);
+  border-radius:25px;
+  box-shadow:0 0 20px #00ffff;
+  max-width:600px;
+  margin:40px auto;
+  padding:50px 30px;
   animation:neonPulse 5s infinite;
 }
 @keyframes neonPulse{
-  0%,100%{box-shadow:0 0 40px #00ffff;}
-  50%{box-shadow:0 0 15px #ff00ff;}
+  0%,100%{box-shadow:0 0 20px #00ffff;}
+  50%{box-shadow:0 0 10px #ff00ff;}
 }
 
-/* 🎙️ Título principal multicolor */
+/* Título */
 .radio-title{
   font-family:'Amadeus',sans-serif;
-  font-size:2.8em;
-  letter-spacing:2px;
-  margin-bottom:25px;
+  font-size:2.5em;
+  letter-spacing:1px;
+  margin-bottom:20px;
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-size:300%;
   animation:neonFlow 6s infinite linear;
-  text-shadow:0 0 20px rgba(0,255,255,0.4);
+  text-shadow:0 0 15px rgba(0,255,255,0.3);
 }
 @keyframes neonFlow{
   0%{background-position:0%;}
@@ -75,23 +72,23 @@ body{
 /* Logo */
 .radio-logo{
   display:block;
-  margin:20px auto 40px;
-  width:220px;
-  max-width:90%;
+  margin:20px auto 30px;
+  width:180px;
+  max-width:85%;
   animation:logoPulse 4s infinite ease-in-out;
 }
 @keyframes logoPulse{
-  0%{filter:drop-shadow(0 0 20px #00ffff);}
-  50%{filter:drop-shadow(0 0 30px #ff00ff);}
-  100%{filter:drop-shadow(0 0 20px #00ffff);}
+  0%{filter:drop-shadow(0 0 10px #00ffff);}
+  50%{filter:drop-shadow(0 0 15px #ff00ff);}
+  100%{filter:drop-shadow(0 0 10px #00ffff);}
 }
 
 /* Subtexto */
 .radio-sub{
   color:#fff;
-  font-size:1.2em;
-  margin-bottom:40px;
-  text-shadow:0 0 8px rgba(0,255,255,0.4);
+  font-size:1.1em;
+  margin-bottom:25px;
+  text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 
 /* Botón */
@@ -99,160 +96,148 @@ body{
   background:linear-gradient(135deg,#00ffff,#ff0080);
   color:#000;
   border:none;
-  padding:20px 60px;
+  padding:15px 50px;
   border-radius:50px;
-  font-size:1.6em;
+  font-size:1.3em;
   cursor:pointer;
-  text-shadow:0 0 6px #fff;
-  box-shadow:0 0 25px #00ffff;
+  text-shadow:0 0 5px #fff;
+  box-shadow:0 0 15px #00ffff;
   transition:.3s;
 }
 .play-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 45px #ff00ff;
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ff00ff;
 }
 
 /* Player */
 .player-box{
   display:none;
-  margin-top:40px;
+  margin-top:30px;
   animation:fadeIn 1s ease forwards;
 }
 @keyframes fadeIn{
-  from{opacity:0;transform:translateY(40px);}
+  from{opacity:0;transform:translateY(30px);}
   to{opacity:1;transform:translateY(0);}
 }
 .player-container{
-  width:130px;
-  height:110px;
+  width:120px;
+  height:100px;
   margin:auto;
   overflow:hidden;
-  border-radius:25px;
-  box-shadow:0 0 25px rgba(0,255,255,0.6);
+  border-radius:20px;
+  box-shadow:0 0 15px rgba(0,255,255,0.5);
 }
 .player-container iframe{
   width:100%;
   height:300px;
   border:none;
   transform:translateY(-200px);
-  scale:1.5;
+  scale:1.4;
 }
 
 /* Botón cerrar */
 .close-btn{
-  margin-top:25px;
+  margin-top:20px;
   background:#ff0080;
   border:none;
   color:#fff;
   font-size:1em;
-  padding:10px 22px;
+  padding:10px 20px;
   border-radius:10px;
   cursor:pointer;
-  box-shadow:0 0 15px #ff0080;
+  box-shadow:0 0 10px #ff0080;
   transition:.3s;
 }
 .close-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 25px #ff0080;
+  transform:scale(1.05);
+  box-shadow:0 0 20px #ff0080;
 }
 
-/* 💬 Sección Publicidad */
+/* Publicidad */
 .promo-box{
-  max-width:700px;
-  margin:100px auto;
-  background:rgba(0,0,0,0.85);
-  border-radius:25px;
-  padding:55px 40px;
-  text-align:center;
-  box-shadow:0 0 25px rgba(255,0,255,0.5);
+  max-width:600px;
+  margin:60px auto;
+  background:rgba(0,0,0,0.8);
+  border-radius:20px;
+  padding:45px 25px;
+  box-shadow:0 0 20px rgba(255,0,255,0.4);
 }
 .promo-box h2{
-  font-family:'Poppins',sans-serif;
   color:#ff00ff;
-  font-size:2.2em;
-  line-height:1.4em;
-  margin-bottom:20px;
-  text-shadow:0 0 15px rgba(255,0,255,0.4);
+  font-size:1.9em;
+  margin-bottom:15px;
+  text-shadow:0 0 10px rgba(255,0,255,0.4);
 }
 .promo-box h2 span{
   display:block;
   font-family:'Amadeus',sans-serif;
-  font-size:1.3em;
+  font-size:1.2em;
   color:#00ffff;
-  text-shadow:0 0 15px #00ffff,0 0 25px #ff00ff;
+  text-shadow:0 0 12px #00ffff,0 0 18px #ff00ff;
 }
 .promo-box p{
   color:#eaeaea;
+  font-size:1em;
+  line-height:1.6em;
+  margin-bottom:25px;
+  text-shadow:0 0 5px rgba(0,255,255,0.3);
+}
+.promo-btn,.share-btn{
+  display:inline-block;
+  border:none;
+  border-radius:50px;
+  text-decoration:none;
   font-size:1.1em;
-  line-height:1.7em;
-  margin-bottom:30px;
-  white-space:pre-line;
-  text-shadow:0 0 6px rgba(0,255,255,0.3);
+  padding:12px 35px;
+  transition:.3s;
 }
 .promo-btn{
   background:linear-gradient(135deg,#25D366,#128C7E);
   color:#fff;
-  border:none;
-  padding:15px 45px;
-  font-size:1.2em;
-  border-radius:50px;
-  text-decoration:none;
-  display:inline-block;
-  box-shadow:0 0 25px #25D366;
-  transition:.3s;
+  box-shadow:0 0 15px #25D366;
 }
 .promo-btn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 35px #25D366;
+  box-shadow:0 0 25px #25D366;
 }
-
-/* 📤 Botón compartir */
 .share-btn{
   background:linear-gradient(135deg,#ff9900,#ff0080);
   color:#fff;
-  border:none;
-  padding:15px 45px;
-  font-size:1.2em;
-  border-radius:50px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:15px;
-  box-shadow:0 0 25px #ff00ff;
-  transition:.3s;
+  margin-top:12px;
+  box-shadow:0 0 15px #ff00ff;
 }
 .share-btn:hover{
   transform:scale(1.05);
-  box-shadow:0 0 35px #ff00ff;
+  box-shadow:0 0 25px #ff00ff;
 }
 
-/* Footer créditos */
-.footer {
+/* Footer */
+.footer{
   color:#888;
   font-size:0.9em;
-  margin:60px 0 20px;
+  margin:40px 0 20px;
 }
-.footer a {
+.footer a{
   color:#00ffff;
   text-decoration:none;
 }
-.footer a:hover {
-  text-decoration:underline;
-}
+.footer a:hover{text-decoration:underline;}
 
 /* Responsive */
 @media(max-width:600px){
-  .radio-title{font-size:2.1em;}
-  .radio-logo{width:180px;}
-  .player-container{width:110px;height:95px;}
-  .player-container iframe{transform:translateY(-190px);scale:1.4;}
-  .play-btn{font-size:1.1em;padding:15px 40px;}
-  .promo-box h2{font-size:1.8em;}
+  body{padding:10px;}
+  .radio-box,.promo-box{padding:30px 20px;}
+  .radio-title{font-size:2em;}
+  .radio-logo{width:150px;}
+  .player-container{width:100px;height:85px;}
+  .player-container iframe{transform:translateY(-190px);scale:1.3;}
+  .play-btn{font-size:1.1em;padding:12px 35px;}
+  .promo-box h2{font-size:1.6em;}
 }
 </style>
 </head>
 
 <body>
-
 <div class="radio-box">
   <h2 class="radio-title">Radio Imagen™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
@@ -268,54 +253,41 @@ body{
   </div>
 </div>
 
-<!-- 🎙️ SECCIÓN PUBLICIDAD -->
 <div class="promo-box">
   <h2>📢 ¡Hacemos la publicidad de tu marca en<br><span>RADIO IMAGEN™</span></h2>
-  <p>🎧 Convertí tu negocio en protagonista del aire.  
-
-🎙️ Promocioná tu marca, producto o evento con menciones en vivo, spots profesionales y presencia en nuestra programación.  
-
-🚀 No pierdas la oportunidad de estar donde todos escuchan.</p>
-
+  <p>🎧 Convertí tu negocio en protagonista del aire. 🎙️ Promocioná tu marca, producto o evento con menciones en vivo, spots profesionales y presencia en nuestra programación. 🚀 No pierdas la oportunidad de estar donde todos escuchan.</p>
   <a class="promo-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Quiero publicitar ahora</a>
-
   <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
 </div>
 
-<!-- ⚡ Créditos -->
 <p class="footer">Diseñado y desarrollado por <a href="https://ciborg347.onrender.com" target="_blank">Ciborg 347™</a></p>
 
 <script>
-const playBtn = document.getElementById('playButton');
-const playerBox = document.getElementById('playerBox');
-const radioIframe = document.getElementById('radioIframe');
+const playBtn=document.getElementById('playButton');
+const playerBox=document.getElementById('playerBox');
+const radioIframe=document.getElementById('radioIframe');
 
 function abrirPlayer(){
   playerBox.style.display='block';
   playBtn.style.display='none';
   window.scrollTo({top:playerBox.offsetTop-100,behavior:'smooth'});
 }
-
 function cerrarPlayer(){
   playerBox.style.display='none';
   playBtn.style.display='inline-block';
-  radioIframe.src = radioIframe.src;
+  radioIframe.src=radioIframe.src;
 }
 
-/* 📤 Compartir */
+/* Compartir */
 function compartir(){
-  const shareData = {
-    title: '🎧 Radio Imagen™ | En Vivo 24hs',
-    text: 'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
-    url: 'https://radioimagen.onrender.com'
+  const shareData={
+    title:'🎧 Radio Imagen™ | En Vivo 24hs',
+    text:'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
+    url:'https://radioimagen347.onrender.com'
   };
-  if (navigator.share) {
-    navigator.share(shareData);
-  } else {
-    alert('Copiá este enlace para compartir:\n' + shareData.url);
-  }
+  if(navigator.share){navigator.share(shareData);}
+  else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
 }
 </script>
-
 </body>
 </html>
