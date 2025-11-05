@@ -240,6 +240,57 @@ body{
   box-shadow:0 0 25px #ff00ff;
 }
 
+/* Popup compartir */
+#popupCompartir {
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,0.9);
+  border:2px solid #00ffff;
+  box-shadow:0 0 25px #ff00ff;
+  border-radius:20px;
+  padding:30px;
+  z-index:999;
+  color:#fff;
+  width:280px;
+  text-align:center;
+  animation:fadeIn 0.4s ease forwards;
+}
+#popupCompartir h3{
+  font-family:'Amadeus';
+  font-size:1.3em;
+  color:#00ffff;
+  margin-bottom:15px;
+}
+#popupCompartir a{
+  display:block;
+  margin:8px 0;
+  padding:10px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+  transition:0.3s;
+}
+#popupCompartir .whatsapp{background:#25D366;}
+#popupCompartir .facebook{background:#1877F2;}
+#popupCompartir .twitter{background:#1DA1F2;}
+#popupCompartir .telegram{background:#0088cc;}
+#popupCompartir a:hover{transform:scale(1.08);}
+#popupCompartir button{
+  margin-top:12px;
+  padding:6px 16px;
+  border:none;
+  border-radius:10px;
+  background:#ff0080;
+  color:#fff;
+  cursor:pointer;
+  font-size:0.9em;
+  box-shadow:0 0 12px #ff0080;
+}
+
 /* Footer */
 .footer{
   color:#888;
@@ -272,7 +323,6 @@ body{
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- 🔊 Oyentes dinámicos -->
   <div class="oyentes-bar">
     <p>🔊 Oyentes en este momento: <span id="contadorOyentes">521</span></p>
   </div>
@@ -301,12 +351,23 @@ body{
   <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
 </div>
 
+<!-- Popup compartir -->
+<div id="popupCompartir">
+  <h3>📤 Compartir Radio Imagen™</h3>
+  <a href="#" target="_blank" class="whatsapp">WhatsApp</a>
+  <a href="#" target="_blank" class="facebook">Facebook</a>
+  <a href="#" target="_blank" class="twitter">X / Twitter</a>
+  <a href="#" target="_blank" class="telegram">Telegram</a>
+  <button onclick="cerrarPopup()">Cerrar</button>
+</div>
+
 <p class="footer">Diseñado y desarrollado por <a href="https://ciborg347.onrender.com" target="_blank">Ciborg 347™</a></p>
 
 <script>
 const playBtn=document.getElementById('playButton');
 const playerBox=document.getElementById('playerBox');
 const radioIframe=document.getElementById('radioIframe');
+const popup=document.getElementById('popupCompartir');
 
 function abrirPlayer(){
   playerBox.style.display='block';
@@ -319,38 +380,50 @@ function cerrarPlayer(){
   radioIframe.src=radioIframe.src;
 }
 
-/* Compartir */
-function compartir(){
-  const shareData={
-    title:'🎧 Radio Imagen™ | En Vivo 24hs',
-    text:'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
-    url:'https://radioimagen347.onrender.com'
+/* 📤 Compartir universal con fallback visual */
+async function compartir(){
+  const shareData = {
+    title: '🎧 Radio Imagen™ | En Vivo 24hs',
+    text: 'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
+    url: 'https://radioimagen347.onrender.com'
   };
-  if(navigator.share){navigator.share(shareData);}
-  else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      abrirPopup();
+    }
+  } catch (err) {
+    abrirPopup();
+  }
 }
 
-/* 📊 Contador de oyentes con tendencia suave */
+function abrirPopup(){
+  const url = encodeURIComponent('https://radioimagen347.onrender.com');
+  const text = encodeURIComponent('🎧 Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶');
+  popup.querySelector('.whatsapp').href = `https://wa.me/?text=${text}%20${url}`;
+  popup.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+  popup.querySelector('.twitter').href = `https://twitter.com/intent/tweet?text=${text}%20${url}`;
+  popup.querySelector('.telegram').href = `https://t.me/share/url?url=${url}&text=${text}`;
+  popup.style.display='block';
+}
+
+function cerrarPopup(){
+  popup.style.display='none';
+}
+
+/* 📊 Contador dinámico suave */
 let oyentes = 521;
 const contador = document.getElementById('contadorOyentes');
-
 function cambiarOyentes() {
-  // Probabilidad de subir más que bajar
-  const probSubir = Math.random() < 0.7; // 70% sube, 30% baja
-  let cambio = Math.floor(Math.random() * 6) + 1; // paso de 1 a 6 oyentes
-
-  if (probSubir) {
-    oyentes += cambio;
-  } else {
-    oyentes -= Math.floor(Math.random() * 3); // pequeñas bajas
-  }
-
+  const probSubir = Math.random() < 0.7;
+  let cambio = Math.floor(Math.random() * 6) + 1;
+  if (probSubir) oyentes += cambio; else oyentes -= Math.floor(Math.random() * 3);
   if (oyentes < 500) oyentes = 500;
   if (oyentes > 1100) oyentes = 1100;
-
   contador.textContent = oyentes;
 }
-setInterval(cambiarOyentes, 4000); // cada 4 segundos fluctúa
+setInterval(cambiarOyentes, 4000);
 </script>
 </body>
 </html>
