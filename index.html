@@ -274,7 +274,7 @@ body{
 
   <!-- 🔊 Oyentes dinámicos -->
   <div class="oyentes-bar">
-    <p>🔊 Oyentes en este momento: <span id="contadorOyentes">816</span></p>
+    <p>🔊 Oyentes en este momento: <span id="contadorOyentes">521</span></p>
   </div>
 
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
@@ -330,18 +330,27 @@ function compartir(){
   else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
 }
 
-/* 📊 Contador dinámico (sube y baja entre 816 y 1073) */
-let oyentes = 816;
+/* 📊 Contador de oyentes con tendencia suave */
+let oyentes = 521;
 const contador = document.getElementById('contadorOyentes');
 
 function cambiarOyentes() {
-  const cambio = Math.floor(Math.random() * 13) - 6; // entre -6 y +6
-  oyentes += cambio;
-  if (oyentes < 816) oyentes = 816;
-  if (oyentes > 1073) oyentes = 1073;
+  // Probabilidad de subir más que bajar
+  const probSubir = Math.random() < 0.7; // 70% sube, 30% baja
+  let cambio = Math.floor(Math.random() * 6) + 1; // paso de 1 a 6 oyentes
+
+  if (probSubir) {
+    oyentes += cambio;
+  } else {
+    oyentes -= Math.floor(Math.random() * 3); // pequeñas bajas
+  }
+
+  if (oyentes < 500) oyentes = 500;
+  if (oyentes > 1100) oyentes = 1100;
+
   contador.textContent = oyentes;
 }
-setInterval(cambiarOyentes, 3500); // cada 3.5 seg cambia
+setInterval(cambiarOyentes, 4000); // cada 4 segundos fluctúa
 </script>
 </body>
 </html>
