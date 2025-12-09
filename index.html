@@ -88,6 +88,21 @@ body{
   padding:20px;
 }
 
+/* BOTÓN MANUAL SIEMPRE VISIBLE */
+#installManual{
+  background:rgba(0,0,0,0.85);
+  padding:12px 20px;
+  color:#00ffff;
+  font-weight:600;
+  border-radius:10px;
+  box-shadow:0 0 12px #00ffff;
+  width:90%;
+  max-width:350px;
+  margin:0 auto 15px;
+  cursor:pointer;
+  display:block;
+}
+
 /* FUENTES */
 @font-face{ font-family:'Amadeus'; src:url('AMADEUS_.TTF'); }
 .radio-title{ font-family:'Amadeus' !important; }
@@ -154,11 +169,26 @@ body{
 }
 @keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 
-.play-btn{
-  margin-top:20px;background:linear-gradient(135deg,#00ffff,#ff0080);
-  padding:15px 50px;border:none;border-radius:50px;
-  font-size:1.3em;color:#000;font-weight:600;
+/* BOTÓN PLAY / PAUSE NUEVO */
+.stream-btn{
+  display:inline-block;
+  margin-top:20px;
+  background:linear-gradient(135deg,#00ffff,#00aaff);
+  padding:14px 38px;
+  border:none;
+  border-radius:30px;
+  font-size:1.2em;
+  font-weight:600;
+  color:#000;
+  cursor:pointer;
+  box-shadow:0 0 15px #00ffff;
+  transition:.2s;
 }
+.stream-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 22px #00ffff;
+}
+
 .player-box{display:none;margin-top:25px}
 
 .player-container{
@@ -254,14 +284,15 @@ body{
   display:inline-block;margin-top:20px;
   background:rgba(0,0,0,.6);
   padding:14px 35px;border-radius:35px;
-  font-size:1.2em;font-weight:700;
+  font-size:1.2em;
+  font-weight:700;
   color:#00ffff;border:2px solid #00ffff;
   text-decoration:none;box-shadow:0 0 15px #00ffff;
   transition:.25s;
 }
 .publicitar-btn:hover{background:#00ffff;color:#000;box-shadow:0 0 25px #00ffff}
 
-/* NUEVO BOTÓN PUBLICITA EN RADIO IMAGEN */
+/* BOTÓN PUBLICITAR RADIO */
 .publicitar-radio{
   display:inline-block;
   background:linear-gradient(135deg,#ff00ff,#b300ff);
@@ -280,7 +311,7 @@ body{
   box-shadow:0 0 28px #ff00ff;
 }
 
-/* FOOTER CENTRADO */
+/* FOOTER */
 .footer{
   margin-top:50px;
   color:#aaa;
@@ -301,6 +332,11 @@ body{
 </head>
 
 <body>
+
+<!-- BOTÓN MANUAL DE INSTALACIÓN SIEMPRE VISIBLE -->
+<div id="installManual" onclick="instalarAppManual()">
+  📱 Instalar Radio Imagen™
+</div>
 
 <!-- BANNER INSTALAR APP -->
 <div id="installBanner">
@@ -330,14 +366,13 @@ body{
 
   <p class="radio-sub">En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
+  <!-- 🔥 BOTÓN PLAY / PAUSE -->
+  <button class="stream-btn" id="streamBtn" onclick="toggleRadio()">
+    ▶️ Escuchar Radio Imagen
+  </button>
 
-  <div class="player-box" id="playerBox">
-    <div class="player-container">
-      <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
-    </div>
-    <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
-  </div>
+  <!-- AUDIO STREAM -->
+  <audio id="streamPlayer" src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA" preload="none"></audio>
 
   <a class="share-btn"
      href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
@@ -431,16 +466,27 @@ body{
 
 <script>
 
-/* PLAYER */
-function abrirPlayer(){
-  document.getElementById("playerBox").style.display="block";
-  document.getElementById("playButton").style.display="none";
+/* PLAY / PAUSE STREAM */
+function toggleRadio() {
+  const audio = document.getElementById("streamPlayer");
+  const btn = document.getElementById("streamBtn");
+
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = "⏸️ Pausar Radio Imagen";
+  } else {
+    audio.pause();
+    btn.textContent = "▶️ Escuchar Radio Imagen";
+  }
 }
-function cerrarPlayer(){
-  document.getElementById("playerBox").style.display="none";
-  document.getElementById("playButton").style.display="inline-block";
-  document.getElementById("radioIframe").src =
-    document.getElementById("radioIframe").src;
+
+/* BOTÓN MANUAL DE INSTALACIÓN */
+function instalarAppManual() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+  } else {
+    alert("Si no aparece la instalación, agregá la página a inicio desde el menú de tu navegador 📱");
+  }
 }
 
 /* OYENTES */
