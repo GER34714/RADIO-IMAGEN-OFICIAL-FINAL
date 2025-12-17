@@ -382,10 +382,11 @@ body{
     ▶️ Escuchar Radio Imagen
   </button>
 
-  <!-- AUDIO -->
+  <!-- AUDIO (MODIFICADO: SIN TOKEN ?zt= + preload none + crossorigin) -->
   <audio id="streamPlayer"
-    src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0bGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA"
-    preload="auto">
+    src="https://stream-175.zeno.fm/rer8uxdn6f0uv"
+    preload="none"
+    crossorigin="anonymous">
   </audio>
 
   <a class="share-btn"
@@ -477,7 +478,7 @@ body{
 
 <script>
 
-/* PLAY / PAUSE (CORREGIDO: SIN load() NI AUTO-RECONNECT AGRESIVO) */
+/* PLAY / PAUSE (MODIFICADO: SIN TOKEN, preload none, y reset en error) */
 function toggleRadio() {
   const audio = document.getElementById("streamPlayer");
   const btn = document.getElementById("streamBtn");
@@ -494,6 +495,11 @@ function toggleRadio() {
     btn.textContent = "▶️ Escuchar Radio Imagen";
   }
 }
+
+/* RESET DEL BOTÓN SI EL STREAM FALLA (sin auto-reconnect agresivo) */
+document.getElementById("streamPlayer").addEventListener("error", () => {
+  document.getElementById("streamBtn").textContent = "▶️ Escuchar Radio Imagen";
+});
 
 /* BOTÓN MANUAL */
 function instalarAppManual() {
